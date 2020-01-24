@@ -5,11 +5,10 @@ cache:
 - bundler
 before_install:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
-  - gem install bundler -v 2.1.2
+  - gem install bundler
 install:
 - bundle install
 rvm:
-- 2.3.0
 - 2.4.1
 notifications:
   email:
@@ -39,6 +38,5 @@ deploy:
   on:
     tags: true
     all_branches: true
-    rvm: 2.3.0
     rvm: 2.4.1
     repo: sensu-plugins/sensu-plugins-opsgenie
